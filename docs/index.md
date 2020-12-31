@@ -6,7 +6,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Initial Chapter
 
-Some text. Some more text.
+Some text. Some more text. Even more text.
 
 ### Markdown
 
