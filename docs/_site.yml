@@ -1,0 +1,9 @@
+name: "my-website"
+navbar:
+  title: "My website"
+  left:
+    - text: "Home"
+      href: index.Rmd
+output:
+  html_document:
+    theme: darkly
