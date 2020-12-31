@@ -4,6 +4,7 @@ navbar:
   left:
     - text: "Home"
       href: index.Rmd
+output_dir: "../docs"
 output:
   html_document:
     theme: darkly
