@@ -1,6 +1,6 @@
 ---
 title: "Untitled"
-output: github_document
+output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
