@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # My chapter
 
-Text in my chapter. More text.
+Text in my chapter. More text. Even more text.
 
 ## GitHub Documents
 
