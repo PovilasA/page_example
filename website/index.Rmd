@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Povilo website"
 output: distill::distill_article
 ---
 
@@ -7,9 +7,76 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# My chapter
+# Reticulate 
 
 Text in my chapter. More text. Even more text.
+
+
+```{r, include=FALSE}
+library(reticulate)
+use_python("/usr/local/bin/python")
+```
+
+```{python}
+import pandas as pd
+d = {"one": [1.0, 2.0, 3.0, 4.0], "two": [4.0, 3.0, 2.0, 1.0]}
+dd = pd.DataFrame(d)
+dd
+```
+
+```{r}
+py$dd
+```
+
+
+```{r}
+ddd = data.frame(a = 1:3, b=3:5)
+ddd
+```
+
+```{python}
+r.ddd
+```
+
+
+# Dygraphs
+
+```{r}
+library(dplyr)
+library(dygraphs)
+dygraph(nhtemp, main = "New Haven Temperatures") %>%
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+```
+
+
+
+# KableExtra
+
+
+```{r}
+library(knitr)
+library(kableExtra)
+library(formattable)
+ft_dt <- mtcars[1:5, 1:4]
+ft_dt$car <- row.names(ft_dt)
+row.names(ft_dt) <- NULL
+ft_dt$mpg <- color_tile("white", "orange")(ft_dt$mpg)
+ft_dt$cyl <- cell_spec(ft_dt$cyl, angle = (1:5)*60, 
+                      background = "red", color = "white", align = "center")
+ft_dt$disp <- ifelse(
+  ft_dt$disp > 200,
+  cell_spec(ft_dt$disp, color = "red", bold = T),
+  cell_spec(ft_dt$disp, color = "green", italic = T)
+)
+ft_dt$hp <- color_bar("lightgreen")(ft_dt$hp)
+ft_dt <- ft_dt[c("car", "mpg", "cyl", "disp", "hp")]
+
+kable(ft_dt, escape = F) %>%
+  #kable_paper("hover", full_width = F) %>%
+  column_spec(5, width = "3cm") %>%
+  add_header_above(c(" ", "Hello" = 2, "World" = 2))
+```
+
 
 ## GitHub Documents
 
